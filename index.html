@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot Chaos!</title>
+    
     <style>
+    
     body{
         background-color: #011d22;
         color:aqua
     }
     #header{
-        width:200px;
+        width:300px;
+        text-align: center;
         margin: auto;
     }
     .panel{
-        max-height: 400px;
-        max-width: 600px;
+        height: 400px;
+        width: 600px;
         float: left;
     }
     .panel img {
         width: 100%;
         height: 100%;
     }
-    .fancypanel{
-        max-height: 400px;
-        max-width: 600px;
-        float: left;
-    }
-    .fancypanel img {
-        width: 100%;
-        height: 100%;
-    }
+    
     #three{
        overflow:hidden;
     }
@@ -53,7 +49,62 @@
     }
     #comic{max-width: 600px;
     margin:auto;}
+
+    .fancypanel { /* got the rotaty code from here: https://prismic.io/blog/css-hover-effects */
     
+        width: 600px; 
+        height: 400px;
+    
+        perspective: 1000px;
+        cursor: pointer;
+    }
+    
+    .card-inner {   
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d; 
+    }
+    
+    
+    .fancypanel:hover .card-inner {    
+        transform: rotateX(180deg);
+        
+    }
+    
+    .fancypanel1, .fancypanel2 {     
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        
+        
+    }
+    
+    
+    .fancypanel1 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+    }
+    .fancypanel2 img  {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+    }   
+    .fancypanel2 {          
+        transform: rotateX(180deg);
+       
+    }
+    #proceedbutton1{
+        width: 100px;
+        margin: auto;
+    }
     </style>
 </head>
 <body>
@@ -63,42 +114,53 @@
     </div>
     <div id="body">
         <div id="comic">
-            <div class="panel" id="1"> <img src="images/panel 1.jpg"></div>
-            <div class="panel" id="2"> <img src="images/panel 2.jpg"></div>
-            <div class="fancypanel" id="three"> 
-                <div id="3.1"> <img src="images/panel 3 1.jpg"></div>
-                <div id="3.2"> <img src="images/panel 3.jpg"></div>
+            <div class="panel" id="1" data-aos="fade-right"> <img src="images/panel 1.jpg"></div>
+            <div class="panel" id="2" data-aos="fade-left"> <img src="images/panel 2.jpg"></div>
+            <div class="fancypanel" id="three" data-aos="fade-right"> 
+                <div class="card-inner">
+                <div id="3.1" class="fancypanel1"> <img src="images/panel 3 1.jpg"></div>
+                <div id="3.2" class="fancypanel2"> <img src="images/panel 3.jpg"></div></div>
             </div>
-            <div class="fancypanel" id="four">
-                <div class="panel" id="4.1"> <img src="images/panel 4 1.jpg"></div>
-                <div class="panel" id="4.2"> <img src="images/panel 4 2.jpg"></div>
+            <div class="fancypanel" id="four" data-aos="fade-left">
+                <div class="card-inner">
+                <div class="fancypanel1" id="4.1"> <img src="images/panel 4 1.jpg"></div>
+                <div class="fancypanel2" id="4.2"> <img src="images/panel 4 2.jpg"></div></div>
             </div>
-            <div class="panel" id="5"> <img src="images/panel 5.jpg"></div>
-            <div class="fancypanel" id="six">
-                <div class="panel" id="6.1"> <img src="images/panel 6.jpg"></div>
-                <div class="panel" id="6.2"> <img src="images/panel 6 2.jpg"></div>
+            <div class="panel" id="5" data-aos="fade-right"> <img src="images/panel 5.jpg"></div>
+            <div class="fancypanel" id="six" data-aos="fade-left">
+                <div class="card-inner">
+                    <div class="fancypanel1" id="6.1"> <img src="images/panel 6.jpg"></div>
+                    <div class="fancypanel2" id="6.2"> <img src="images/panel 6 2.jpg"></div></div>
+                
             </div>
-            <div class="panel" id="7"> <img src="images/panel 7.jpg"></div>
-            <div class="panel" id="8"> <img src="images/panel 8.jpg"></div>
-            <div class="panel" id="9"> <img src="images/panel 9.jpg"></div>
-            <div class="panel" id="10"> <img src="images/panel 10.jpg"></div>
-            <div class="panel" id="11"> <img src="images/panel 11.jpg"></div>
-            <div class="panel" id="12"> <img src="images/panel 12.jpg"></div>
-            <div class="panel" id="13"> <img src="images/panel 13.jpg"></div>
-            <div class="panel" id="14"> <img src="images/panel 14.jpg"></div>
-            <div class="panel" id="15"> <img src="images/panel 15.jpg"></div>
-            <div class="panel" id="16"> <img src="images/panel 16.jpg"></div>
-            <div class="panel" id="17"> <img src="images/panel 17.jpg"></div>
-            <div class="panel" id="18"> <img src="images/panel 18.jpg"></div>
-            <div class="fancypanel" id="nineteen">
-                <div class="panel" id="19.1"> <img src="images/panel 19 1.jpg"></div>
-                <div class="panel" id="19.2"> <img src="images/panel 19 2.jpg"></div>
+            <div class="panel" id="7" data-aos="fade-right"> <img src="images/panel 7.jpg"></div>
+            <div class="panel" id="8" data-aos="fade-left"> <img src="images/panel 8.jpg"></div>
+            <div class="panel" id="9" data-aos="fade-right"> <img src="images/panel 9.jpg"></div>
+            <div class="panel" id="10" data-aos="fade-left"> <img src="images/panel 10.jpg"></div>
+            <div class="panel" id="11" data-aos="fade-right"> <img src="images/panel 11.jpg"></div>
+            <div class="panel" id="12" data-aos="fade-left"> <img src="images/panel 12.jpg"></div>
+            <div class="panel" id="13" data-aos="fade-right"> <img src="images/panel 13.jpg"></div>
+            <div class="panel" id="14" data-aos="fade-left"> <img src="images/panel 14.jpg"></div>
+            <div class="panel" id="15" data-aos="fade-right"> <img src="images/panel 15.jpg"></div>
+            <div class="panel" id="16" data-aos="fade-left"> <img src="images/panel 16.jpg"></div>
+            <div class="panel" id="17" data-aos="fade-right"> <img src="images/panel 17.jpg"></div>
+            <div class="panel" id="18" data-aos="fade-left"> <img src="images/panel 18.jpg"></div>
+            <div class="fancypanel" id="nineteen" data-aos="fade-right">
+                <div class="card-inner">
+                <div class="fancypanel1" id="19.1"> <img src="images/panel 19 1.jpg"></div>
+                <div class="fancypanel2" id="19.2"> <img src="images/panel 19 2.jpg"></div>
+                </div>
             </div>
         </div>
-        <div id="proceedbutton1"> </div>
+        <div id="proceedbutton1"> <a href="minigame.html"><h2>Proceed</h2></a></div>
     </div>
     
 </div>
-
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
 </body>
 </html>
+
+
