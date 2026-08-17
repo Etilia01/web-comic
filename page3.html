@@ -43,6 +43,7 @@
     <div id="container">
     <div id="header">
         <h1>Robot Chaos!</h1>
+        <audio id="music" src="music.wav" loop="loop"></audio>
     </div>
     <div id="body">
         <div id="comic">
@@ -59,6 +60,10 @@
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 <script>
     AOS.init();
+    
 </script>
+<script>window.onload = function() {
+    document.getElementById("music").play();
+}</script>
 </body>
 </html>

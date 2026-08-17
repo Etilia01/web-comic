@@ -117,6 +117,7 @@ a:visited {
 <body>
     <div id="container">
     <div id="header">
+        <audio id="music" src="music.wav" loop="loop"></audio>
         <h1>Robot Chaos!</h1>
         <h4> This is an interactive webcomic designed as a desktop website. Please interact by hovering, clicking and scrolling to reveal the story.</h4>
     </div>
@@ -168,6 +169,9 @@ a:visited {
 <script>
     AOS.init();
 </script>
+<script>window.onload = function() {
+    document.getElementById("music").play();
+}</script>
 </body>
 </html>
 

@@ -34,7 +34,9 @@ window.onload = () => {
     target9.style.display = 'none'
     target10.style.display = 'none'
     target11.style.display = 'none'
+    document.getElementById("music").play()
      }
+     
 
 function toggle(){
     if (one== 0) {
